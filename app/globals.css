@@ -1,3 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	body {
+		font-family: 'Poppins', 'Inter', sans-serif;
+		@apply bg-dark text-white;
+	}
+
+	section {
+		@apply py-16 lg:py-24;
+	}
+
+	h1 {
+		@apply text-4xl;
+	}
+	h2 {
+		@apply lg:text-4xl text-2xl;
+	}
+	h3 {
+		@apply lg:text-2xl text-xl;
+	}
+	h4 {
+		@apply text-xl;
+	}
+}
+
+@layer utilities {
+	.mini-text {
+		@apply text-xs;
+	}
+	.font_medium {
+		@apply font-medium;
+	}
+
+	.outlined_btn {
+		@apply py-2 px-11 rounded-lg font-semibold border border-redCol text-redCol;
+	}
+	.filled_btn {
+		@apply py-2 px-11 rounded-lg font-semibold bg-redCol text-white;
+	}
+}
