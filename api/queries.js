@@ -24,15 +24,30 @@ const hygraph = new GraphQLClient(
 //     return product
 //   }
 
-export async function getSkills() {
+export const getSkills = async (params) => {
+  const { skills } = await hygraph.request(
+    `query Skills {
+        skills (first: 100) {
+          id
+          name
+        }
+      }`
+  );
+
+  return skills
+}
+
+export async function getServices() {
   const query = gql`
-    query Skills {
-      skills (first: 100){
+    query Services  {
+      services (first: 50) {
         id
         name
+        description
+        servicesList
       }
     }
   `;
   const result = await request(graphqlAPI, query);
-  return result.skills
+  return result.services
 }
