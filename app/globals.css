@@ -38,9 +38,50 @@
 	}
 
 	.outlined_btn {
-		@apply py-2 px-11 rounded-lg font-semibold border border-redCol text-redCol;
+		border: 1px solid #c3317d;
+		padding: 8px 44px;
+		border-radius: 8px;
+		text-decoration: none;
+		color: #c3317d;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.5s;
 	}
+
+	.outlined_btn:hover {
+		color: white;
+	}
+
+	.outlined_btn span {
+		position: relative;
+		z-index: 1;
+	}
+
+	.outlined_btn::before {
+		content: '';
+		position: absolute;
+		background-color: #c3317d;
+		width: 0;
+		height: 0;
+		left: var(--xPos);
+		top: var(--yPos);
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		transition: all 0.5s;
+	}
+
+	.outlined_btn:hover::before {
+		width: 500px;
+		height: 500px;
+	}
+
 	.filled_btn {
-		@apply py-2 px-11 rounded-lg font-semibold bg-redCol text-white;
+		padding: 8px 44px;
+		border-radius: 8px;
+		text-decoration: none;
+		color: white;
+		transition: all 0.5s;
+		font-weight: 500;
+		background-color: #c3317d;
 	}
 }

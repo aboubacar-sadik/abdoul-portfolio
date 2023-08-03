@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from '@/components/Button';
 
 export default function Hero() {
 	return (
@@ -13,9 +14,9 @@ export default function Hero() {
 						providing various services as outlined in the services section.{' '}
 					</p>
 					<div className="flex items-center justify-center lg:justify-start gap-8 mt-4">
-						<button className="outlined_btn">
-							<Link href="/about">About</Link>
-						</button>
+						<Link href="/about">
+							<Button>About</Button>
+						</Link>
 						<button className="filled_btn">
 							<Link href="/contact">Contact</Link>
 						</button>

@@ -1,7 +1,9 @@
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient, request, gql } from 'graphql-request';
 
+
+const graphqlAPI = process.env.NEXT_GRAPH_CMS_ENDPOINT_URL
 const hygraph = new GraphQLClient(
-  process.env.GRAPH_CMS_ENDPOINT_URL
+  graphqlAPI
 );
 
 
@@ -22,15 +24,15 @@ const hygraph = new GraphQLClient(
 //     return product
 //   }
 
-export const getSkills = async () => {
-  const { skills } = await hygraph.request(
-    `query Skills {
-        skills (first: 50){
-          id
-          name
-        }
-      }`
-  );
-
-  return skills
+export async function getSkills() {
+  const query = gql`
+    query Skills {
+      skills (first: 100){
+        id
+        name
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.skills
 }
