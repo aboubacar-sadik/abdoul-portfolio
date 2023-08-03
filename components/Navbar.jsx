@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Disclosure, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import Button from '@/components/Button';
+import { OutlinedBtnRed } from '@/components/Buttons';
 
 const navigation = [
 	{ name: 'Home', url: '/', current: true },
@@ -64,7 +64,7 @@ export default function Navbar() {
 									</div>
 								</div>
 								<Link href={''} className="hidden sm:block">
-									<Button>CV</Button>
+									<OutlinedBtnRed>CV</OutlinedBtnRed>
 								</Link>
 							</div>
 						</div>
@@ -99,7 +99,7 @@ export default function Navbar() {
 									</Disclosure.Button>
 								))}
 								<Link href={''} className="ml-3 sm:hidden">
-									<Button>CV</Button>
+									<OutlinedBtnRed>CV</OutlinedBtnRed>
 								</Link>
 							</div>
 						</Disclosure.Panel>

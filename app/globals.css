@@ -75,6 +75,44 @@
 		height: 500px;
 	}
 
+	.outlined_btn_white {
+		border: 1px solid #fff;
+		padding: 8px 44px;
+		border-radius: 8px;
+		text-decoration: none;
+		color: #fff;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.5s;
+	}
+
+	.outlined_btn_white:hover {
+		color: #17202c;
+	}
+
+	.outlined_btn_white span {
+		position: relative;
+		z-index: 1;
+	}
+
+	.outlined_btn_white::before {
+		content: '';
+		position: absolute;
+		background-color: #fff;
+		width: 0;
+		height: 0;
+		left: var(--xPos);
+		top: var(--yPos);
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		transition: all 0.5s;
+	}
+
+	.outlined_btn_white:hover::before {
+		width: 500px;
+		height: 500px;
+	}
+
 	.filled_btn {
 		padding: 8px 44px;
 		border-radius: 8px;

@@ -7,7 +7,7 @@ export default async function Services() {
 	const services = await getServices();
 
 	return (
-		<section>
+		<section className="bg-dark-gray">
 			<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 				<h2 className="text-center mb-16">
 					Services<span className="text-redCol">.</span>
