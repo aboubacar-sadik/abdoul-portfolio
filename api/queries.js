@@ -51,3 +51,21 @@ export async function getServices() {
   const result = await request(graphqlAPI, query);
   return result.services
 }
+
+export async function getTestimonials() {
+  const query = gql`
+    query Testimonials {
+      testimonials {
+        id
+        testimonialContent
+        client
+        clientImage {
+          url
+        }
+        clientPosition
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.testimonials
+}

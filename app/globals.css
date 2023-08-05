@@ -5,10 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 @layer components {
 	body {
 		font-family: 'Poppins', 'Inter', sans-serif;
-		@apply bg-dark text-white;
+		@apply bg-dark text-white font-normal;
 	}
 
 	section {
