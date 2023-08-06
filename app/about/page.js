@@ -2,6 +2,10 @@ import React from 'react'
 
 export default function page() {
     return (
-        <h1>About Page</h1>
+        <section className="bg-dark-gray">
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                About
+            </div>
+        </section>
     )
 }

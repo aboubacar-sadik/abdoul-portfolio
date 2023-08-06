@@ -63,9 +63,11 @@ export async function getTestimonials() {
           url
         }
         clientPosition
+        country
       }
     }
   `;
   const result = await request(graphqlAPI, query);
   return result.testimonials
 }
+
