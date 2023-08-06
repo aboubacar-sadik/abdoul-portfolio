@@ -71,3 +71,16 @@ export async function getTestimonials() {
   return result.testimonials
 }
 
+export async function getAbout() {
+  const query = gql`
+    query About {
+      aboutPages {
+        content {
+          raw
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.aboutPages[0].content.raw.children
+}
