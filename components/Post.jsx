@@ -19,9 +19,10 @@ export default function Post({ posts }) {
 								<Image
 									src={post.coverImage.url}
 									fill
-									objectFit="cover"
 									priority
-									className="!relative"
+									sizes="(max-width: 768px) 100%, (max-width: 1200px) 100%"
+									className="!relative object-cover w-full"
+									alt={post.imageAltText}
 								/>
 							</div>
 							<div className="flex flex-col gap-4 p-5 bg-dark pb-8 h-full justify-center">

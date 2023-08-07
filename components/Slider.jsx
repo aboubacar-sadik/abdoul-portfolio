@@ -54,7 +54,7 @@ export default function Slider({ testimonials }) {
 							width={54}
 							height={48}
 							alt="single quote icon"
-							className=" -my-4"
+							className=" -my-4 w-14 h-12"
 						/>
 						{/* ===== Testimonial content ===== */}
 						<p className="font-normal italic">{testimonial.testimonialContent}</p>

@@ -13,7 +13,6 @@
 
 body {
 	font-family: 'Poppins', 'Inter', sans-serif;
-	line-height: 30px;
 	font-weight: 300;
 	@apply bg-dark text-white font-normal;
 }

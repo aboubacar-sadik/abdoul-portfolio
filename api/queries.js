@@ -100,6 +100,7 @@ export async function getPosts() {
         coverImage {
           url
         }
+        imageAltText
       }
     }
   `;

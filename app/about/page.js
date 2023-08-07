@@ -8,7 +8,7 @@ import tom from '@/public/svg/wave.svg'
 const components = {
     img: (props) => (
 
-        <Image {...props} fill priority className='w-full object-contain !relative' />
+        <Image {...props} fill priority className='object-contain !relative' />
     ),
     h1: ({ children }) => <h1 className='mb-5 text-center'>{children}</h1>,
     h2: ({ children }) => <h2 className='mb-5 text-xl'>{children}</h2>,
