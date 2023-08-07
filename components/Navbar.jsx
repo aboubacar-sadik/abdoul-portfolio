@@ -11,7 +11,7 @@ const navigation = [
 	{ name: 'Home', url: '/', current: true },
 	{ name: 'About', url: 'about', current: false },
 	{ name: 'Blog', url: '/posts', current: false },
-	{ name: 'Contact', url: 'contact', current: false },
+	{ name: 'Contact', url: '/contact', current: false },
 ];
 
 function classNames(...classes) {
