@@ -10,7 +10,7 @@ import { OutlinedBtnRed } from '@/components/Buttons';
 const navigation = [
 	{ name: 'Home', url: '/', current: true },
 	{ name: 'About', url: 'about', current: false },
-	{ name: 'Blog', url: '/blog', current: false },
+	{ name: 'Blog', url: '/posts', current: false },
 	{ name: 'Contact', url: 'contact', current: false },
 ];
 
