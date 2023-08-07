@@ -25,7 +25,7 @@ export default function Post({ posts }) {
 									alt={post.imageAltText}
 								/>
 							</div>
-							<div className="flex flex-col gap-4 p-5 bg-dark pb-8 h-full justify-center">
+							<div className="flex flex-col gap-4 p-5 bg-dark pb-8 h-full ">
 								<div className="text-white flex items-center text-sm justify-between">
 									<span className="flex items-center gap-2">
 										<FaUser />
