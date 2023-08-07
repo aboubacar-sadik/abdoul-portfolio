@@ -10,8 +10,9 @@ const components = {
 
         <Image {...props} fill priority className='w-full object-contain !relative' />
     ),
-    h2: ({ children }) => <h2 className='mb-3 text-2xl'>{children}</h2>,
-    h4: ({ children }) => <h4 className='mb-3'>{children}</h4>,
+    h1: ({ children }) => <h1 className='mb-5 text-center'>{children}</h1>,
+    h2: ({ children }) => <h2 className='mb-5 text-xl'>{children}</h2>,
+    h4: ({ children }) => <h4 className='mb-5'>{children}</h4>,
     a: ({ href, children }) => {
         if (href.startsWith('https')) {
             return <a href={href} target="_blank" rel="noopener noreferrer" className='text-redCol hover:underline'>{children}</a>
@@ -26,12 +27,20 @@ const components = {
 
 export default async function page() {
 
-    const content = await getAbout()
-    // console.log(content[8]);
+    const aboutData = await getAbout()
+    const content = aboutData.content.markdown
+    const title = aboutData.pageTitle
     return (
-        <section className="bg-dark-gray">
-            <div className="mx-auto max-w-4xl px-2 sm:px-6 lg:px-8 relative">
-                <MDXRemote source={content} components={components} />
+        <section className="bg-dark-gray pt-0 border-b border-border text-justify">
+            <div>
+                <div className='bg-dark h-40 lg:h-96 flex items-center justify-center'>
+                    <div className='text-center max-w-7xl m-auto'>
+                        <h1>{title}</h1>
+                    </div>
+                </div>
+                <div className="mx-auto max-w-4xl px-2 sm:px-6 lg:px-8 relative py-16 lg:py-24">
+                    <MDXRemote source={content} components={components} />
+                </div>
             </div>
 
         </section>

@@ -1,7 +1,13 @@
+import { getPosts } from '@/api/queries'
+import Post from '@/components/Post'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+    const posts = await getPosts()
+    // console.log(posts);
     return (
-        <h1>Blog Page</h1>
+        <div>
+            <Post posts={posts} />
+        </div>
     )
 }

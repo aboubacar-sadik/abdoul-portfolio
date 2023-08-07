@@ -75,6 +75,7 @@ export async function getAbout() {
   const query = gql`
     query About {
       aboutPages {
+        pageTitle
         content {
           markdown
         }
@@ -82,5 +83,26 @@ export async function getAbout() {
     }
   `;
   const result = await request(graphqlAPI, query);
-  return result.aboutPages[0].content.markdown
+  return result.aboutPages[0]
+}
+
+export async function getPosts() {
+  const query = gql`
+    query Posts {
+      blogPosts {
+        id
+        title
+        slug
+        publishedAt
+        author {
+          name
+        }
+        coverImage {
+          url
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.blogPosts
 }
