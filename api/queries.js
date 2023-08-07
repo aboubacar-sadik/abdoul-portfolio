@@ -76,11 +76,11 @@ export async function getAbout() {
     query About {
       aboutPages {
         content {
-          raw
+          markdown
         }
       }
     }
   `;
   const result = await request(graphqlAPI, query);
-  return result.aboutPages[0].content.raw.children
+  return result.aboutPages[0].content.markdown
 }
