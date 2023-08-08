@@ -43,9 +43,6 @@ export default function Post({ posts }) {
 							</div>
 						</article>
 					))}
-				<div className=" col-span-full flex items-center justify-center">
-					<OutlinedBtnRed>Load more</OutlinedBtnRed>
-				</div>
 			</div>
 		</section>
 	);

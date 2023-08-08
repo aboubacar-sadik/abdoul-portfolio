@@ -86,10 +86,22 @@ export async function getAbout() {
   return result.aboutPages[0]
 }
 
-export async function getPosts() {
+export async function getCategories() {
   const query = gql`
-    query Posts {
-      blogPosts {
+    query Categories{
+      postCategories{
+        id
+        name
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.postCategories
+}
+export async function getPosts({ category }) {
+  const query = gql`
+    query Posts ($category: String){
+      blogPosts(where: {AND: {categories_every: {name_contains: $category}}}) {
         id
         title
         slug
@@ -104,6 +116,7 @@ export async function getPosts() {
       }
     }
   `;
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query, { category: category });
   return result.blogPosts
 }
+
