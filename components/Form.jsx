@@ -5,6 +5,8 @@ import axios from 'axios';
 
 export default function Form() {
 	const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+	const [error, setError] = useState(false);
+	const [valid, setValid] = useState(false);
 
 	function handleChange(e) {
 		const value = e.target.value;
@@ -14,18 +16,20 @@ export default function Form() {
 			...prev,
 			[name]: value,
 		}));
+
+		setError(null);
 	}
 
 	async function submitFormData(e) {
 		e.preventDefault();
 
-		if (!formData) {
-			alert('Title and description are required.');
+		if (!formData.email || !formData.name || !formData.message) {
+			setError(true);
 			return;
 		}
 
 		try {
-			const res = await fetch('http://localhost:3000/api/contact', {
+			const res = await fetch('/api/contact', {
 				method: 'POST',
 				headers: {
 					'Content-type': 'application/json',
@@ -34,10 +38,19 @@ export default function Form() {
 			});
 
 			if (res.ok) {
-				res.json().then((res) => console.log(res.message));
-				
+				res.json();
+
+				setValid(true);
+
+				setTimeout(() => {
+					setValid(false);
+				}, 3000);
+
+				setError(false);
+
+				setFormData({ name: '', subject: '', email: '', message: '' });
 			} else {
-				throw new Error('Failed to create a topic');
+				throw new Error('Failed to send message');
 			}
 		} catch (error) {
 			console.log(error);
@@ -92,9 +105,16 @@ export default function Form() {
 				rows="10"
 				className="flex items-center text-dark px-2 pt-2 rounded-lg focus:ring-2 ring-dark w-full"
 			></textarea>
-			<span className="text-sm h-10 flex items-center justify-center text-red-600 bg-red-300 border border-red-600 rounded-lg w-full">
-				Error message
-			</span>
+			{error && (
+				<span className="text-sm h-10 flex items-center justify-center text-red-600 bg-red-200 border border-red-600 rounded-lg w-full">
+					Please fill in the required fields.
+				</span>
+			)}
+			{valid && (
+				<span className="text-sm h-10 flex items-center justify-center text-green-600 bg-green-200 border border-green-600 rounded-lg w-full">
+					Your message has been successfully sent.
+				</span>
+			)}
 			<OutlinedBtnWhite>Send</OutlinedBtnWhite>
 		</form>
 	);
