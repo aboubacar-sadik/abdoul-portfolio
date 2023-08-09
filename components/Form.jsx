@@ -67,7 +67,7 @@ export default function Form() {
 				id="name"
 				value={formData.name}
 				onChange={handleChange}
-				className="h-11 flex items-center text-dark px-2 rounded-lg focus:outline-2 outline-dark w-full"
+				className="h-11 flex items-center bg-dark text-white px-2 rounded-lg focus:outline-2 outline-dark w-full"
 			/>
 			<label htmlFor="email" className="-mb-2">
 				Email
@@ -78,7 +78,7 @@ export default function Form() {
 				id="email"
 				value={formData.email}
 				onChange={handleChange}
-				className="h-11 flex items-center text-dark px-2 rounded-lg focus:ring-2 ring-dark w-full"
+				className="h-11 flex items-center text-white bg-dark px-2 rounded-lg focus:ring-2 ring-dark w-full"
 			/>
 
 			<label htmlFor="subject" className="-mb-2">
@@ -90,7 +90,7 @@ export default function Form() {
 				id="subject"
 				value={formData.subject}
 				onChange={handleChange}
-				className="h-11 flex items-center text-dark px-2 rounded-lg focus:outline-2 outline-dark w-full"
+				className="h-11 flex items-center text-white px-2 bg-dark rounded-lg focus:outline-2 outline-dark w-full"
 			/>
 			<label htmlFor="message" className="-mb-2">
 				Message
@@ -102,7 +102,7 @@ export default function Form() {
 				id="message"
 				cols="15"
 				rows="10"
-				className="flex items-center text-dark px-2 pt-2 rounded-lg focus:ring-2 ring-dark w-full"
+				className="flex items-center h-32 text-white px-2 pt-2 bg-dark rounded-lg focus:ring-2 ring-dark w-full"
 			></textarea>
 			{error && (
 				<span className="text-sm h-10 flex items-center justify-center text-red-600 bg-red-200 border border-red-600 rounded-lg w-full">

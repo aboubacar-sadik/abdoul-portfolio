@@ -11,7 +11,7 @@ const components = {
         <Image {...props} fill priority className='object-contain !relative' />
     ),
     h1: ({ children }) => <h1 className='mb-5 text-center'>{children}</h1>,
-    h2: ({ children }) => <h2 className='mb-5 text-xl'>{children}</h2>,
+    h2: ({ children }) => <h2 className='mt-14 mb-1 text-xl'>{children}</h2>,
     h4: ({ children }) => <h4 className='mb-5'>{children}</h4>,
     a: ({ href, children }) => {
         if (href.startsWith('https')) {
