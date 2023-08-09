@@ -18,6 +18,30 @@ export default function Form() {
 
 	async function submitFormData(e) {
 		e.preventDefault();
+
+		if (!formData) {
+			alert('Title and description are required.');
+			return;
+		}
+
+		try {
+			const res = await fetch('http://localhost:3000/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			if (res.ok) {
+				res.json().then((res) => console.log(res.message));
+				
+			} else {
+				throw new Error('Failed to create a topic');
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	return (
