@@ -1,3 +1,4 @@
+import ContactList from '@/components/ContactList'
 import Form from '@/components/Form'
 import React from 'react'
 
@@ -12,7 +13,7 @@ export default function page() {
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-16 lg:py-24">
 
                 <Form />
-
+                <ContactList />
             </div>
         </section>
     )
