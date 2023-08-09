@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import { OutlinedBtnWhite } from './Buttons';
-import axios from 'axios';
 
 export default function Form() {
 	const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
