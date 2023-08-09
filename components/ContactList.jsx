@@ -36,7 +36,7 @@ export default function ContactList() {
 				</h3>
 				<h3 className="text-base font-light">
 					<span className="font-semibold underline underline-offset-4 mr-2">Adress : </span>
-					Zinder, Niger
+					Zinder, Niger (Work remotely)
 				</h3>
 
 				<div className="flex gap-4">
