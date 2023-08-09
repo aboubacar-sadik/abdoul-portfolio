@@ -11,9 +11,10 @@ export default function page() {
                 </div>
             </div>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-16 lg:py-24">
-
-                <Form />
-                <ContactList />
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16'>
+                    <Form />
+                    <ContactList />
+                </div>
             </div>
         </section>
     )
