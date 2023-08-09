@@ -28,7 +28,7 @@ export default function Form() {
 		}
 
 		try {
-			const res = await fetch('https://www.abdoulhayyou.com/api/contact', {
+			const res = await fetch('/api/contact', {
 				method: 'POST',
 				headers: {
 					'Content-type': 'application/json',
