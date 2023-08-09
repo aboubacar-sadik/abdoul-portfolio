@@ -1,6 +1,4 @@
 import { getServices } from '@/api/queries';
-import Image from 'next/image';
-import check from '@/public/svg/check.svg';
 import { BsCheckSquareFill } from 'react-icons/bs';
 
 export default async function Services() {

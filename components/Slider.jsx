@@ -6,7 +6,6 @@ import quote from '@/public/svg/quote.svg';
 import { register } from 'swiper/element/bundle';
 import { FaArrowRightLong, FaArrowLeftLong } from 'react-icons/fa6';
 import { BiSolidUserCircle } from 'react-icons/bi';
-import { getTestimonials } from '@/api/queries';
 register();
 
 export default function Slider({ testimonials }) {

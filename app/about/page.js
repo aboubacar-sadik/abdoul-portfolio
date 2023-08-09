@@ -2,7 +2,6 @@ import { getAbout } from '@/api/queries'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import Link from 'next/link';
-import tom from '@/public/svg/wave.svg'
 
 
 const components = {
