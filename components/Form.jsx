@@ -93,7 +93,7 @@ export default function Form() {
 				className="h-11 flex items-center text-white px-2 bg-dark rounded-lg focus:outline-2 outline-dark w-full"
 			/>
 			<label htmlFor="message" className="-mb-2">
-				Messag
+				Message
 			</label>
 			<textarea
 				name="message"

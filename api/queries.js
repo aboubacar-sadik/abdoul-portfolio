@@ -89,14 +89,14 @@ export async function getAbout() {
 export async function getCategories() {
   const query = gql`
     query Categories{
-      postCategories{
+      categories{
         id
         name
       }
     }
   `;
   const result = await request(graphqlAPI, query);
-  return result.postCategories
+  return result.categories
 }
 export async function getPosts({ category }) {
   const query = gql`
@@ -120,3 +120,88 @@ export async function getPosts({ category }) {
   return result.blogPosts
 }
 
+export async function getPost(slug) {
+  const query = gql`
+    query Posts ($slug: String){
+      blogPost(
+        where: {slug: $slug}
+      ) {
+        title
+        author {
+          name
+        }
+        publishedAt
+        coverImage {
+          url
+          fileName
+        }
+        content {
+          markdown
+        }
+        slug
+        categories{
+          name
+          slug
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { slug: slug });
+  return result.blogPost
+}
+
+export async function getLatestPosts() {
+  const query = gql`
+    query Posts (){
+      blogPosts(first: 3, orderBy: publishedAt_DESC) {
+        id
+        title
+        slug
+        publishedAt
+        author {
+          name
+        }
+        coverImage {
+          url
+          fileName
+        }
+        imageAltText
+        categories {
+          slug
+          name
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.blogPosts
+}
+
+export async function getRelatedPosts(categories, slug) {
+  const query = gql`
+    query MyQuery($slug: String, $categories: [String]) {
+      blogPosts(
+        where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}},
+        first: 3, 
+        orderBy: publishedAt_DESC
+      ) {
+        categories {
+          name
+          slug
+        }
+        title
+        slug
+        coverImage{
+          url
+          fileName
+        }
+        publishedAt
+        author {
+          name
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { slug: slug, categories: categories });
+  return result.blogPosts
+}

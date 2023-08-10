@@ -4,9 +4,9 @@ const email = process.env.EMAIL
 const pass = process.env.EMAIL_PASS
 
 export const transporter = nodemailer.createTransport({
-    host: 'smtp.titan.email',
+    service: 'gmail',
     ///// host: 'smtp.hostinger.com', Pour hostinger
-    port: 465,
+    port: 8080,
     secure: true, // Change it to false if you wanted another port than 465
     auth: {
         user: email,
