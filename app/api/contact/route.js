@@ -22,7 +22,7 @@ export async function POST(request) {
             .replace(/<(?!br\s*\/?)[^>]+>/g, ""); // supprime tout le html en autorisant uniquement les balises <br>
 
         const data = await resend.emails.send({
-            from: `Tomess <${myEmail}>`,
+            from: `Contact Portfolio <${myEmail}>`,
             to: myEmail,
             subject: 'You just received a message from your Portfolio Website',
             react: EmailTemplate({ clientName: name, clientEmail: email, messageSubject: subject, messageContent: message }),

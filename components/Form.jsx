@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { OutlinedBtnWhite } from './Buttons';
 import { useForm } from 'react-hook-form';
 
@@ -7,10 +7,13 @@ export default function Form() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
-	} = useForm();
+		reset,
+		formState,
+		formState: { errors, isSubmitSuccessful },
+	} = useForm({ defaultValues: { name: '', email: '', subject: '', content: '' } });
 
 	const [isLoading, setIsLoading] = useState(false);
+	const [successMessage, setSuccessMessage] = useState(null);
 
 	async function handleFormSubmit(data) {
 		if (!isLoading) {
@@ -33,6 +36,20 @@ export default function Form() {
 			}
 		}
 	}
+
+	useEffect(() => {
+		// you can do async server request and fill up form
+		if (formState.isSubmitSuccessful) {
+			reset({
+				name: '',
+				email: '',
+				subject: '',
+				content: '',
+			});
+			setSuccessMessage('Message sent successfully !!');
+		}
+	}, [formState, isSubmitSuccessful, reset]);
+
 	return (
 		<form
 			action=""
@@ -85,8 +102,13 @@ export default function Form() {
 				rows="10"
 				className="flex items-center h-32 text-white px-2 pt-2 bg-dark rounded-lg focus:ring-2 ring-dark w-full"
 			></textarea>
+			{successMessage && (
+				<span className="h-8 w-full rounded-md flex items-center justify-center text-green-500">
+					{successMessage}
+				</span>
+			)}
 
-			{!isLoading && <OutlinedBtnWhite>Send</OutlinedBtnWhite>}
+			{!isLoading && !successMessage && <OutlinedBtnWhite>Send</OutlinedBtnWhite>}
 		</form>
 	);
 }
