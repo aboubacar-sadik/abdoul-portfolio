@@ -23,7 +23,6 @@ export async function POST(request) {
             react: EmailTemplate({ clientName: name, clientEmail: email, messageSubject: subject, messageContent: message }),
         });
 
-        console.log(toEmail);
         // if (data.status === 'success') {
         //     return NextResponse.json({ message: 'Message sent succesfully' })
         // }
