@@ -13,13 +13,25 @@ export default function Form() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	async function handleFormSubmit(data) {
-		await fetch('/api/contact', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		});
+		if (!isLoading) {
+			setIsLoading(true);
+
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			});
+
+			setIsLoading(false);
+
+			if (response.ok) {
+				console.log('ok');
+			} else {
+				console.log('error');
+			}
+		}
 	}
 	return (
 		<form

@@ -10,6 +10,11 @@ export async function POST(request) {
         const body = await request.json()
         const { name, email, subject, content } = body
 
+        if (!name || !email || !content) {
+            NextResponse.json({ message: "INVALID_PARAMETER" }, { status: 405 });
+            return;
+        }
+
         const message = content
             .replace(/\n/g, "<br>")
             .replace(/\r/g, "<br>")
@@ -19,15 +24,11 @@ export async function POST(request) {
         const data = await resend.emails.send({
             from: `Tomess <${myEmail}>`,
             to: myEmail,
-            subject: 'Hello world',
+            subject: 'You just received a message from your Portfolio Website',
             react: EmailTemplate({ clientName: name, clientEmail: email, messageSubject: subject, messageContent: message }),
         });
 
-        // if (data.status === 'success') {
-        //     return NextResponse.json({ message: 'Message sent succesfully' })
-        // }
-
-        return NextResponse.json(data);
+        return NextResponse.json(data, { message: 'Message sent successfuly' }, { status: 200 });
     } catch (error) {
         console.log(error);
     }
