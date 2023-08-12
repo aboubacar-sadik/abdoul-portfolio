@@ -11,7 +11,7 @@ export default function Resume() {
 						<h3>Download my resume.</h3>
 						<p>To find out more about my career path, download my resume.</p>
 					</div>
-					<Link href={''}>
+					<Link aria-label="Link to download Illiassou resume" href={''}>
 						<OutlinedBtnWhite>Download</OutlinedBtnWhite>
 					</Link>
 				</div>

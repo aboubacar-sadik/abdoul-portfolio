@@ -37,7 +37,11 @@ export default function Post({ posts }) {
 									</span>
 								</div>
 								<h2 className="text-xl">{post.title}</h2>
-								<Link href={`posts/${post.slug}`} className="text-redCol">
+								<Link
+									aria-label="Link to blog post page"
+									href={`posts/${post.slug}`}
+									className="text-redCol"
+								>
 									Read more...
 								</Link>
 							</div>

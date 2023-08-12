@@ -51,6 +51,7 @@ export default function Navbar() {
 									<div className="flex space-x-4">
 										{navigation.map((item) => (
 											<Link
+												aria-label={`Link to ${item.name} page`}
 												key={item.name}
 												href={item.url}
 												className={classNames(
@@ -66,7 +67,11 @@ export default function Navbar() {
 										))}
 									</div>
 								</div>
-								<Link href={''} className="hidden sm:block">
+								<Link
+									aria-label="Link to ownload Illiassou resume"
+									href={''}
+									className="hidden sm:block"
+								>
 									<OutlinedBtnRed>CV</OutlinedBtnRed>
 								</Link>
 							</div>
@@ -87,6 +92,7 @@ export default function Navbar() {
 							<div className="space-y-1 pb-3">
 								{navigation.map((item) => (
 									<Disclosure.Button
+										aria-label={`Link to ${item.name} page`}
 										key={item.name}
 										as="a"
 										href={item.url}
@@ -101,7 +107,11 @@ export default function Navbar() {
 										{item.name}
 									</Disclosure.Button>
 								))}
-								<Link href={''} className="ml-3 sm:hidden">
+								<Link
+									aria-label="Link to download Illiassou resume"
+									href={''}
+									className="ml-3 sm:hidden"
+								>
 									<OutlinedBtnRed>CV</OutlinedBtnRed>
 								</Link>
 							</div>

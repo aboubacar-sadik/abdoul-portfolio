@@ -10,7 +10,11 @@ export default async function RelatedPosts({ categories, slug }) {
 		<div className="flex flex-col divide-y divide-border px-4">
 			{posts.map((post) => (
 				<article key={post.id}>
-					<Link href={post.slug} className="group flex items-center gap-3 py-4">
+					<Link
+						aria-label="Link to blog post page"
+						href={post.slug}
+						className="group flex items-center gap-3 py-4"
+					>
 						<div className="rounded-full flex-shrink-0 overflow-hidden relative h-11 w-11">
 							<Image
 								src={post.coverImage.url}

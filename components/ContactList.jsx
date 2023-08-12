@@ -41,6 +41,7 @@ export default function ContactList() {
 
 				<div className="flex gap-4">
 					<a
+						aria-label="Link to Illiassou facebook page"
 						href="https://www.facebook.com/profile.php?id=100068814306300"
 						target="_blank"
 						className="p-2 bg-dark rounded-full"
@@ -48,6 +49,7 @@ export default function ContactList() {
 						<BiLogoFacebook size={32} />
 					</a>
 					<a
+						aria-label="Link to Illiassou upwork profile"
 						href="https://www.upwork.com/freelancers/~01b4d2727a2d98ab0d"
 						target="_blank"
 						className="p-2 bg-dark rounded-full"
@@ -55,6 +57,7 @@ export default function ContactList() {
 						<BiLogoUpwork size={32} />
 					</a>
 					<a
+						aria-label="Link to Illiassou linkedin profile"
 						href="https://www.linkedin.com/in/illiassou-issoufou-abdoul-hayyou-085aa821a"
 						target="_blank"
 						className="p-2 bg-dark rounded-full"
@@ -63,6 +66,7 @@ export default function ContactList() {
 					</a>
 
 					<a
+						aria-label="Link to Illiassou youtube channel"
 						href="https://www.youtube.com/@harakaabdoul9294"
 						target="_blank"
 						className="p-2 bg-dark rounded-full"

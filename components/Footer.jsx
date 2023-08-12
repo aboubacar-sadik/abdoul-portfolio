@@ -6,6 +6,7 @@ export default function Footer() {
 				<p>
 					Designed & Developed by{' '}
 					<a
+						aria-label="Link to developer Aboubacar Sadik portfolio website"
 						className="text-redCol underline"
 						href="https://aboubacarsadik.vercel.app/"
 						target="_blank"
