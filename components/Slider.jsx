@@ -89,13 +89,17 @@ export default function Slider({ testimonials }) {
 			{/* ===== Pagination ===== */}
 			<div className="flex items-center justify-center gap-1">
 				<button
+					aria-label="Previous slide"
+					aria-controls="swiper-wrapper"
 					type="button"
 					className="prev-slide p-2 transition-all duration-300 hover:text-redCol"
 				>
 					<FaArrowLeftLong size={24} />
 				</button>
 				<button
+					aria-controls="swiper-wrapper"
 					type="button"
+					aria-label="Next slide"
 					className="next-slide p-2 transition-all duration-300 hover:text-redCol"
 				>
 					<FaArrowRightLong size={24} />
