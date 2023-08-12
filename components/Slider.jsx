@@ -88,10 +88,16 @@ export default function Slider({ testimonials }) {
 			</swiper-container>
 			{/* ===== Pagination ===== */}
 			<div className="flex items-center justify-center gap-1">
-				<button className="prev-slide p-2 transition-all duration-300 hover:text-redCol">
+				<button
+					type="button"
+					className="prev-slide p-2 transition-all duration-300 hover:text-redCol"
+				>
 					<FaArrowLeftLong size={24} />
 				</button>
-				<button className="next-slide p-2 transition-all duration-300 hover:text-redCol">
+				<button
+					type="button"
+					className="next-slide p-2 transition-all duration-300 hover:text-redCol"
+				>
 					<FaArrowRightLong size={24} />
 				</button>
 			</div>

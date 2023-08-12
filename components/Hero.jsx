@@ -8,7 +8,7 @@ export default function Hero() {
 			<div className="flex flex-col lg:flex-row items-center justify-center h-screen md:h-[500px] lg:h-[630px] gap-4">
 				<div className="flex flex-col items-center lg:items-start justify-center gap-4 lg:flex-1">
 					<h1 className="text-center lg:text-start">Illiassou Issoufou A. H</h1>
-					<h3 className="text-redCol text-center lg:text-start">Freelancer</h3>
+					<h2 className="text-2xl text-redCol text-center lg:text-start">Freelancer</h2>
 					<p className="text-center lg:text-start">
 						Hello! My name is Illiassou Issoufou Abdoul Hayyou, and I am a professional
 						virtual assistant (a Top Rated Upwork Freelancer) with over 3 years of experience
