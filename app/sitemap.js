@@ -1,7 +1,7 @@
 // import { getPosts } from "@/api/queries";
 
 export default async function sitemap() {
-    // const baseUrl = "https://www.abdoulhayyou.com";
+    const baseUrl = "https://www.abdoulhayyou.com";
 
     // // Get All Posts from CMS
     // const posts = await getPosts();
