@@ -206,3 +206,15 @@ export async function getRelatedPosts(categories, slug) {
   const result = await request(graphqlAPI, query, { slug: slug, categories: categories });
   return result.blogPosts
 }
+
+export async function getPostsForSitmap() {
+  const query = gql`
+    query MyQuery {
+      blogPosts {
+        slug
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.blogPosts
+}
