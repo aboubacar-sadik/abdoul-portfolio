@@ -8,6 +8,16 @@ import { getLatestPosts, getPost, getRelatedPosts } from '@/api/queries';
 import LatestPosts from '@/components/LatestPosts';
 import RelatedPosts from '@/components/RelatedPosts';
 
+export async function generateMetadata({ params, searchParams }, parent) {
+    const post = await getPost(params.slug) || []
+    // read route params
+
+    return {
+        title: post.title,
+        description: post.metaDescription
+    }
+}
+
 
 const components = {
     img: (props) => (
@@ -32,8 +42,8 @@ const components = {
 }
 
 export default async function page({ params }) {
-    const post = await getPost(params.slug)
-    const latestPosts = await getLatestPosts()
+    const post = await getPost(params.slug) || {}
+    const latestPosts = await getLatestPosts() || []
 
     return (
         <section className="bg-dark-gray">
@@ -50,7 +60,7 @@ export default async function page({ params }) {
                         />
                     </div>
                     <h1 className='mt-4'>{post.title}</h1>
-                    <div className="text-white flex items-center text-sm gap-4 my-4">
+                    <div className="text-white flex items-center text-sm gap-4 mt-4 mb-16">
                         <span className="flex items-center gap-2">
                             <FaUser />
                             {post.author.name}

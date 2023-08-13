@@ -2,6 +2,12 @@ import ContactList from '@/components/ContactList'
 import Form from '@/components/Form'
 import React from 'react'
 
+export const metadata = {
+    title: 'Contact Illiassou Issoufou - Top Rated Upwork Freelancer',
+    description: 'Looking for a reliable and professional virtual assistant? Look no further! Illiassou Issoufou is a top rated upwork freelancer virtual assistant offering a wide range of services to help you with your business needs. Contact Illiassou today to learn more.',
+}
+
+
 export default function page() {
     return (
         <section className="bg-dark-gray border-b-2 border-border py-0">

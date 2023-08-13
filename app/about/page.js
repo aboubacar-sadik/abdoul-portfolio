@@ -3,6 +3,10 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata = {
+    title: 'About Illiassou Issoufou - Top Rated Upwork Freelancer',
+    description: 'Looking for a reliable and professional virtual assistant? Look no further! Illiassou Issoufou is a top rated upwork freelancer virtual assistant offering a wide range of services to help you with your business needs. Contact Illiassou today to learn more.',
+}
 
 const components = {
     img: (props) => (

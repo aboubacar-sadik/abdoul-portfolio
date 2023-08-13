@@ -143,6 +143,7 @@ export async function getPost(slug) {
           name
           slug
         }
+        metaDescription
       }
     }
   `;

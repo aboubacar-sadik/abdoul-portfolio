@@ -5,6 +5,12 @@ import Post from '@/components/Post'
 import Categories from '@/components/Categories'
 import React from 'react'
 
+export const metadata = {
+    title: `Illiassou's Blog - Tips and Insights from a Top Rated Freelancer Virtual Assistant`,
+    description: `Welcome to Illiassou's blog, where you can find useful tips and insights on how to become a successful freelancer virtual assistant. `
+}
+
+
 export default async function page({ searchParams: { category } }) {
     const condition = category === 'All' || !category ? { category: '' } : { category: category }
     const categories = await getCategories()
