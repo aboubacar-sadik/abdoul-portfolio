@@ -76,7 +76,7 @@ export default function Slider({ testimonials }) {
 							)}
 							{/* ===== Client infos ===== */}
 							<div>
-								<h4 className="font-semibold text-base">{testimonial.client}</h4>
+								<h3 className="font-semibold text-base">{testimonial.client}</h3>
 								<div className="text-xs text-redCol">
 									<span>{testimonial.clientPosition}</span>
 									{testimonial?.country && <span> • {testimonial.country}</span>}

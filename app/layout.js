@@ -15,7 +15,17 @@ export const metadata = {
   title: 'Illiassou Issoufou Abdoul Hayyou',
   description: `Hello! My name is Illiassou Issoufou Abdoul Hayyou, and I am a professional
   virtual assistant (a Top Rated Upwork Freelancer) with over 3 years of experience
-  providing various services as outlined in the services section.`
+  providing various services as outlined in the services section.`,
+  applicationName: {
+    default: `Illissou Issoufou's Portfolio`
+  },
+  colorScheme: {
+    default: 'dark'
+  },
+  referrer: 'origin-when-cross-origin',
+  keywords: {
+    default: ['Virtual assistant', 'Web reasearch', 'Data entry']
+  },
 }
 
 
