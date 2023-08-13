@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&display=swap'); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--dark: #17202c;
+	--white: #ffffff;
+	--redCol: #8f43ee;
+}
 
 * {
 	margin: 0;
@@ -12,7 +18,6 @@
 }
 
 body {
-	font-family: 'Poppins', 'Inter', sans-serif;
 	font-weight: 300;
 	@apply bg-dark text-white font-normal;
 }
@@ -42,18 +47,18 @@ h4 {
 }
 
 .outlined_btn {
-	border: 1px solid #c3317d;
+	border: 1px solid var(--redCol);
 	padding: 8px 44px;
 	border-radius: 8px;
 	text-decoration: none;
-	color: #c3317d;
+	color: var(--redCol);
 	position: relative;
 	overflow: hidden;
 	transition: all 0.5s;
 }
 
 .outlined_btn:hover {
-	color: white;
+	color: var(--white);
 }
 
 .outlined_btn span {
@@ -64,14 +69,14 @@ h4 {
 .outlined_btn::before {
 	content: '';
 	position: absolute;
-	background-color: #c3317d;
+	background-color: var(--redCol);
 	width: 0;
 	height: 0;
+	transition: all 0.5s;
 	left: var(--xPos);
 	top: var(--yPos);
 	transform: translate(-50%, -50%);
 	border-radius: 50%;
-	transition: all 0.5s;
 }
 
 .outlined_btn:hover::before {
@@ -80,18 +85,18 @@ h4 {
 }
 
 .outlined_btn_white {
-	border: 1px solid #fff;
+	border: 1px solid var(--white);
 	padding: 8px 44px;
 	border-radius: 8px;
-	text-decoration: none;
-	color: #fff;
+	color: var(--white);
 	position: relative;
 	overflow: hidden;
 	transition: all 0.5s;
+	text-decoration: none;
 }
 
 .outlined_btn_white:hover {
-	color: #17202c;
+	color: var(--dark);
 }
 
 .outlined_btn_white span {
@@ -101,15 +106,16 @@ h4 {
 
 .outlined_btn_white::before {
 	content: '';
+
 	position: absolute;
-	background-color: #fff;
+	background-color: var(--white);
 	width: 0;
 	height: 0;
+	transition: all 0.5s;
 	left: var(--xPos);
 	top: var(--yPos);
 	transform: translate(-50%, -50%);
 	border-radius: 50%;
-	transition: all 0.5s;
 }
 
 .outlined_btn_white:hover::before {
@@ -120,11 +126,11 @@ h4 {
 .filled_btn {
 	padding: 8px 44px;
 	border-radius: 8px;
-	text-decoration: none;
-	color: white;
+	color: var(--white);
 	transition: all 0.5s;
 	font-weight: 500;
-	background-color: #c3317d;
+	background-color: var(--redCol);
+	text-decoration: none;
 }
 .about {
 	background-size: cover;
@@ -133,33 +139,32 @@ h4 {
 
 blockquote {
 	display: block;
-	background: #17202c;
+	background: var(--dark);
 	padding: 15px 20px 15px 45px;
-	margin: 0 0 20px;
 	position: relative;
 	margin-bottom: 1rem;
+	margin: 0 0 20px;
 
 	/*Font*/
 	font-style: italic;
 
 	/*Borders - (Optional)*/
-	border-left: 5px solid #c3317d;
+	border-left: 5px solid var(--redCol);
 }
 
 blockquote::before {
-	content: '\201C'; /*Unicode for Left Double Quote*/
+	content: '\201C'; /* Unicode for Left Double Quote */
 
 	/*Font*/
 	font-size: 30px;
 	font-weight: bold;
-	color: #fff;
+	color: var(--white);
 
 	/*Positioning*/
 	position: absolute;
 	left: 10px;
 	top: 5px;
 }
-
 blockquote::after {
 	/*Reset to make sure*/
 	content: '';

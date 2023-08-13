@@ -12,7 +12,7 @@ module.exports = {
         'dark': '#17202C',
         'dark-gray': '#1C2735',
         'border': '#2F3742',
-        'redCol': '#C3317D'
+        'redCol': '#8F43EE'
       },
 
       fontSize: {
