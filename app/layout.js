@@ -12,8 +12,10 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: 'Home',
-  description: 'tomess.',
+  title: 'Illiassou Issoufou Abdoul Hayyou',
+  description: `Hello! My name is Illiassou Issoufou Abdoul Hayyou, and I am a professional
+  virtual assistant (a Top Rated Upwork Freelancer) with over 3 years of experience
+  providing various services as outlined in the services section.`
 }
 
 

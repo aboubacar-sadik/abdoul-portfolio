@@ -2,6 +2,11 @@ import { OutlinedBtnWhite } from '@/components/Buttons'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const metadata = {
+    title: '404 - Not found',
+    description: 'Could not find requested resource.',
+}
+
 export default function NotFound() {
     return (
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
