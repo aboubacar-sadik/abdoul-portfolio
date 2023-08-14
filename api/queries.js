@@ -27,7 +27,7 @@ const hygraph = new GraphQLClient(
 export const getSkills = async (params) => {
   const { skills } = await hygraph.request(
     `query Skills {
-        skills (first: 100) {
+        skills (first: 30) {
           id
           name
         }
