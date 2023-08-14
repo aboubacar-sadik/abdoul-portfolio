@@ -44,7 +44,11 @@ export default function Navbar() {
 							{/* ========= Bar de navigation desktop ========= */}
 							<div className="flex flex-1 items-center justify-start sm:items-center sm:justify-between">
 								<div className="flex flex-shrink-0 items-center">
-									<Link href="/" className="flex items-center justify-center p-2">
+									<Link
+										href="/"
+										className="flex items-center justify-center p-2"
+										aria-label="Link to home"
+									>
 										<Image src={logo} width={44} height={44} alt="Logo" />
 									</Link>
 								</div>
