@@ -3,6 +3,8 @@ import React from 'react';
 import { OutlinedBtnWhite } from './Buttons';
 
 export default function Resume() {
+	const cvUrl = 'https://www.abdoulhayyou.com/illiassou_cv.pdf';
+
 	return (
 		<section>
 			<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -11,7 +13,7 @@ export default function Resume() {
 						<h3>Download my resume.</h3>
 						<p>To find out more about my career path, download my resume.</p>
 					</div>
-					<Link aria-label="Link to download Illiassou resume" href={''}>
+					<Link aria-label="Link to download Illiassou resume" href={cvUrl} target="_blank">
 						<OutlinedBtnWhite>Download</OutlinedBtnWhite>
 					</Link>
 				</div>

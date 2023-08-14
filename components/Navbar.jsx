@@ -19,6 +19,8 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
 }
 
+const cvUrl = 'https://www.abdoulhayyou.com/illiassou_cv.pdf';
+
 export default function Navbar() {
 	return (
 		<Disclosure as="nav" className="bg-dark">
@@ -73,8 +75,9 @@ export default function Navbar() {
 									</div>
 								</div>
 								<Link
-									aria-label="Link to ownload Illiassou resume"
-									href={''}
+									aria-label="Link to download Illiassou resume"
+									href={cvUrl}
+									target="_blank"
 									className="hidden sm:block"
 								>
 									<OutlinedBtnRed>CV</OutlinedBtnRed>
@@ -114,7 +117,8 @@ export default function Navbar() {
 								))}
 								<Link
 									aria-label="Link to download Illiassou resume"
-									href={''}
+									href={cvUrl}
+									target="_blank"
 									className="ml-3 sm:hidden"
 								>
 									<OutlinedBtnRed>CV</OutlinedBtnRed>
