@@ -6,6 +6,7 @@ import { Disclosure, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { OutlinedBtnRed } from '@/components/Buttons';
+import logo from '@/public/logo.svg';
 
 const navigation = [
 	{ name: 'Home', url: '/', current: true },
@@ -43,9 +44,9 @@ export default function Navbar() {
 							{/* ========= Bar de navigation desktop ========= */}
 							<div className="flex flex-1 items-center justify-start sm:items-center sm:justify-between">
 								<div className="flex flex-shrink-0 items-center">
-									<span className="w-14 h-14 rounded-full bg-redCol flex items-center justify-center">
-										Logo
-									</span>
+									<Link href="/" className="flex items-center justify-center p-2">
+										<Image src={logo} width={44} height={44} alt="Logo" />
+									</Link>
 								</div>
 								<div className="hidden sm:ml-6 sm:block">
 									<div className="flex space-x-4">
