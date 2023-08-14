@@ -167,10 +167,6 @@ export async function getLatestPosts() {
           fileName
         }
         imageAltText
-        categories {
-          slug
-          name
-        }
       }
     }
   `;
@@ -186,10 +182,6 @@ export async function getRelatedPosts(categories, slug) {
         first: 3, 
         orderBy: publishedAt_DESC
       ) {
-        categories {
-          name
-          slug
-        }
         title
         slug
         coverImage{

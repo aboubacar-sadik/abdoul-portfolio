@@ -20,19 +20,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
 }
 
-
-export async function generateStaticParams() {
-    const posts = await getPostsForSitmap() || []
-
-    return posts.map(post => {
-        return {
-            slug: post.slug
-        }
-    })
-
-
-}
-
 const components = {
     img: (props) => (
 
