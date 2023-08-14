@@ -4,9 +4,11 @@ import Image from 'next/image';
 import format from 'date-fns/format';
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { getLatestPosts, getPost, getRelatedPosts } from '@/api/queries';
+import { getLatestPosts, getPost, getPostsForSitmap, getRelatedPosts } from '@/api/queries';
 import LatestPosts from '@/components/LatestPosts';
 import RelatedPosts from '@/components/RelatedPosts';
+
+
 
 export async function generateMetadata({ params, searchParams }, parent) {
     const post = await getPost(params.slug) || []
@@ -18,6 +20,18 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
 }
 
+
+export async function generateStaticParams() {
+    const posts = await getPostsForSitmap() || []
+
+    return posts.map(post => {
+        return {
+            slug: post.slug
+        }
+    })
+
+
+}
 
 const components = {
     img: (props) => (
