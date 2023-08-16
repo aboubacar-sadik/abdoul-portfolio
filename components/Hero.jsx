@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { OutlinedBtnRed } from '@/components/Buttons';
 import { BiLogoUpwork, BiLogoLinkedin, BiLogoFacebook } from 'react-icons/bi';
+import Image from 'next/image';
+import profileImage from '@/public/Illiassou_Issoufou.png';
 
 export default function Hero() {
 	return (
 		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-			<div className="flex flex-col lg:flex-row items-center justify-center h-screen md:h-[500px] lg:h-[630px] gap-4">
+			<div className="flex flex-col lg:flex-row items-center justify-center h-screen md:h-[500px] lg:h-[630px] gap-4 overflow-hidden">
 				<div className="flex flex-col items-center lg:items-start justify-center gap-4 lg:flex-1">
 					<h1 className="text-center lg:text-start">Illiassou Issoufou A. H</h1>
 					<h2 className="text-2xl text-redCol text-center lg:text-start font-light">
@@ -52,7 +54,18 @@ export default function Hero() {
 						</button>
 					</div>
 				</div>
-				<div className="lg:flex-1"></div>
+				{/* ===== Image profile ===== */}
+				<div className=" lg:flex-1 relative h-[630px]">
+					<Image
+						src={profileImage}
+						width={100}
+						height={630}
+						priority
+						sizes="(max-width: 768px) 100%, (max-width: 1200px) 100%"
+						className="!relative w-full"
+						alt="Illiassou Issoufou Abdoul Hayyou"
+					/>
+				</div>
 			</div>
 		</div>
 	);
