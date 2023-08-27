@@ -11,7 +11,6 @@ import logo from '@/public/logo.svg';
 const navigation = [
 	{ name: 'Home', url: '/', current: true },
 	{ name: 'About', url: 'about', current: false },
-	{ name: 'Blog', url: '/posts', current: false },
 	{ name: 'Contact', url: '/contact', current: false },
 ];
 
@@ -25,27 +24,27 @@ export default function Navbar() {
 	return (
 		<Disclosure as="nav" className="bg-dark">
 			{({ open }) => (
-				<div className=" border-b border-border">
-					<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-						<div className="relative flex h-16 items-center justify-between">
+				<div className="border-b  border-border">
+					<div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+						<div className="relative flex items-center justify-between h-16">
 							<div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
 								{/* Mobile menu button*/}
 								<Disclosure.Button
 									id="R2lj9"
-									className="relative inline-flex items-center justify-center rounded-md p-2 hover:bg-dark-gray hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+									className="relative inline-flex items-center justify-center p-2 rounded-md hover:bg-dark-gray hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 								>
 									<span className="absolute -inset-0.5" />
 									<span className="sr-only">Open main menu</span>
 									{open ? (
-										<XMarkIcon className="block h-6 w-6 text-white" aria-hidden="true" />
+										<XMarkIcon className="block w-6 h-6 text-white" aria-hidden="true" />
 									) : (
-										<Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+										<Bars3Icon className="block w-6 h-6" aria-hidden="true" />
 									)}
 								</Disclosure.Button>
 							</div>
 							{/* ========= Bar de navigation desktop ========= */}
-							<div className="flex flex-1 items-center justify-start sm:items-center sm:justify-between">
-								<div className="flex flex-shrink-0 items-center">
+							<div className="flex items-center justify-start flex-1 sm:items-center sm:justify-between">
+								<div className="flex items-center flex-shrink-0">
 									<Link
 										href="/"
 										className="flex items-center justify-center p-2"
@@ -97,7 +96,7 @@ export default function Navbar() {
 						leaveTo="transform opacity-0 scale-95"
 					>
 						<Disclosure.Panel className="sm:hidden">
-							<div className="space-y-1 pb-3">
+							<div className="pb-3 space-y-1">
 								{navigation.map((item) => (
 									<Disclosure.Button
 										aria-label={`Link to ${item.name} page`}

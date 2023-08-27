@@ -86,127 +86,19 @@ export async function getAbout() {
   return result.aboutPages[0]
 }
 
-export async function getCategories() {
-  const query = gql`
-    query Categories{
-      categories{
-        id
-        name
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
-  return result.categories
-}
-export async function getPosts({ category }) {
-  const query = gql`
-    query Posts ($category: String){
-      blogPosts(where: {AND: {categories_every: {name_contains: $category}}}) {
-        id
-        title
-        slug
-        publishedAt
-        author {
-          name
-        }
-        coverImage {
-          url
-        }
-        imageAltText
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query, { category: category });
-  return result.blogPosts
-}
-
-export async function getPost(slug) {
-  const query = gql`
-    query Posts ($slug: String){
-      blogPost(
-        where: {slug: $slug}
-      ) {
-        title
-        author {
-          name
-        }
-        publishedAt
-        coverImage {
-          url
-          fileName
-        }
-        content {
-          markdown
-        }
-        slug
-        categories{
-          name
-          slug
-        }
-        metaDescription
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query, { slug: slug });
-  return result.blogPost
-}
-
-export async function getLatestPosts() {
-  const query = gql`
-    query Posts (){
-      blogPosts(first: 3, orderBy: publishedAt_DESC) {
-        id
-        title
-        slug
-        publishedAt
-        author {
-          name
-        }
-        coverImage {
-          url
-          fileName
-        }
-        imageAltText
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
-  return result.blogPosts
-}
-
-export async function getRelatedPosts(categories, slug) {
-  const query = gql`
-    query MyQuery($slug: String, $categories: [String]) {
-      blogPosts(
-        where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}},
-        first: 3, 
-        orderBy: publishedAt_DESC
-      ) {
-        title
-        slug
-        coverImage{
-          url
-          fileName
-        }
-        publishedAt
-        author {
-          name
-        }
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query, { slug: slug, categories: categories });
-  return result.blogPosts
-}
-
-export async function getPostsForSitmap() {
+export async function getCertifications() {
   const query = gql`
     query MyQuery {
-      blogPosts {
-        slug
+      certifications {
+        title
+        imageAltText
+        image {
+          url
+        }
+        id
       }
     }
   `;
   const result = await request(graphqlAPI, query);
-  return result.blogPosts
+  return result.certifications
 }

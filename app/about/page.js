@@ -1,4 +1,5 @@
 import { getAbout } from '@/api/queries'
+import Certification from '@/components/Certification';
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -45,6 +46,7 @@ export default async function page() {
                     <MDXRemote source={content} components={components} />
                 </div>
             </div>
+
 
         </section>
     )
