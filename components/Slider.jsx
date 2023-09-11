@@ -56,7 +56,7 @@ export default function Slider({ testimonials }) {
 							className=" -my-4 !w-14 !h-12"
 						/>
 						{/* ===== Testimonial content ===== */}
-						<p className="font-normal italic">{testimonial.testimonialContent}</p>
+						<p className="font-light italic">{testimonial.testimonialContent}</p>
 						{/* ===== Display client image condition ===== */}
 						<div className="flex gap-3 items-center justify-end">
 							{testimonial.clientImage?.url ? (
