@@ -3,6 +3,7 @@ import Certification from '@/components/Certification';
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 
 export const metadata = {
     title: 'About Illiassou Issoufou - Top Rated Upwork Freelancer',
@@ -10,40 +11,53 @@ export const metadata = {
 }
 
 const components = {
-    img: (props) => (
-
-        <Image {...props} fill priority className='object-contain !relative' />
-    ),
-    h1: ({ children }) => <h1 className='mb-5 text-center'>{children}</h1>,
-    h2: ({ children }) => <h2 className='mt-14 mb-1 text-xl'>{children}</h2>,
-    h4: ({ children }) => <h4 className='mb-5'>{children}</h4>,
-    a: ({ href, children }) => {
-        if (href.startsWith('https')) {
-            return <a href={href} target="_blank" rel="noopener noreferrer" className='text-redCol hover:underline'>{children}</a>
-        } else {
-            return <Link href={href} className='text-redCol hover:underline'>{children}</Link>
-        }
+    types: {
+        // Exemple d'image personnalisée
+        image: ({ value }) => (
+            <Image src={value.asset.url} alt={value.alt || 'Image'} width={500} height={300} className='object-contain' />
+        ),
     },
-    ul: ({ children }) => <ul className='ml-8 list-inside space-y-2 list-disc mb-4'>{children}</ul>,
-    li: ({ children }) => <li className=' list-disc marker:text-redCol'>{children}</li>,
-    p: ({ children }) => <p className=' mb-4 relative'>{children}</p>,
-}
+    block: {
+        h1: ({ children }) => <h1 className="mb-5 text-center">{children}</h1>,
+        h2: ({ children }) => <h2 className="mb-1 text-xl mt-14">{children}</h2>,
+        h4: ({ children }) => <h4 className="mb-5">{children}</h4>,
+        normal: ({ children }) => <p className="relative mb-4">{children}</p>,
+    },
+    marks: {
+        // Gestion des liens
+        link: ({ children, value }) => {
+            const target = (value.href || '').startsWith('http') ? '_blank' : undefined;
+            return (
+                <a href={value.href} target={target} rel={target ? 'noopener noreferrer' : undefined} className="text-redCol hover:underline">
+                    {children}
+                </a>
+            );
+        },
+    },
+    list: {
+        // Gestion des listes non ordonnées
+        bullet: ({ children }) => <ul className="mb-4 ml-8 space-y-2 list-disc list-inside">{children}</ul>,
+    },
+    listItem: {
+        bullet: ({ children }) => <li className="list-disc marker:text-redCol">{children}</li>,
+    },
+};
+
 
 export default async function page() {
 
-    const aboutData = await getAbout()
-    const content = aboutData.content.markdown
-    const title = aboutData.pageTitle
+    const about = await getAbout()
+
     return (
-        <section className="bg-dark-gray pt-0 border-b border-border text-justify">
+        <section className="pt-0 text-justify border-b bg-dark-gray border-border">
             <div>
-                <div className='bg-dark h-40 lg:h-96 flex items-center justify-center'>
-                    <div className='text-center max-w-7xl m-auto'>
-                        <h1>{title}</h1>
+                <div className='flex items-center justify-center h-40 bg-dark lg:h-96'>
+                    <div className='m-auto text-center max-w-7xl'>
+                        <h1>{about.pageTitle}</h1>
                     </div>
                 </div>
-                <div className="mx-auto max-w-4xl px-2 sm:px-6 lg:px-8 relative py-16 lg:py-24">
-                    <MDXRemote source={content} components={components} />
+                <div className="relative max-w-4xl px-2 py-16 mx-auto sm:px-6 lg:px-8 lg:py-24">
+                    <PortableText value={about.content} components={components} onMissingComponent={false} />
                 </div>
             </div>
 

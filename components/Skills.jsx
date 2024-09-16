@@ -1,19 +1,19 @@
-import { getSkills } from '@/api/queries.js';
+import { getSkills } from '@/api/queries';
 
 export default async function Skills() {
 	const skills = await getSkills();
 
 	return (
 		<section className="bg-dark-gray">
-			<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-				<h2 className="text-center mb-16">
+			<div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+				<h2 className="mb-16 text-center">
 					Skills<span className="text-redCol">.</span>
 				</h2>
-				<div className="flex gap-4 flex-wrap">
+				<div className="flex flex-wrap gap-4">
 					{skills.map((skill) => (
 						<span
-							key={skill.id}
-							className="py-2 flex items-center justify-center flex-grow px-11 rounded-lg bg-dark"
+							key={skill._id}
+							className="flex items-center justify-center flex-grow py-2 rounded-lg px-11 bg-dark"
 						>
 							{skill.name}
 						</span>

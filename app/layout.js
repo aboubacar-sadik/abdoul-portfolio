@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react';
 
-import { Poppins } from '@next/font/google'
+import { Poppins } from 'next/font/google'
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -19,9 +19,6 @@ export const metadata = {
   applicationName: {
     default: `Illissou Issoufou's Portfolio`
   },
-  colorScheme: {
-    default: 'dark'
-  },
   referrer: 'origin-when-cross-origin',
   keywords: {
     default: ['Virtual assistant', 'Web reasearch', 'Data entry']
@@ -31,8 +28,9 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang={'en'} className={poppins.className}>
       <body>
         <header>
           <Navbar />

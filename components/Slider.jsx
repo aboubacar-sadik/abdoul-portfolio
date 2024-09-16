@@ -43,9 +43,9 @@ export default function Slider({ testimonials }) {
 		<>
 			{/* ===== Single Slide ===== */}
 			<swiper-container ref={swiperRef} init="false" class=" overflow-hidden rounded-lg">
-				{testimonials.map((testimonial) => (
+				{testimonials.map((testimonial, i) => (
 					<swiper-slide
-						key={testimonial.id}
+						key={i}
 						class="p-4 pt-8 md:p-16 h-auto bg-dark-gray flex flex-col border-0 gap-8 rounded-lg"
 					>
 						<Image
@@ -56,17 +56,17 @@ export default function Slider({ testimonials }) {
 							className=" -my-4 !w-14 !h-12"
 						/>
 						{/* ===== Testimonial content ===== */}
-						<p className="font-light italic">{testimonial.testimonialContent}</p>
+						<p className="italic font-light">{testimonial.testimonialContent}</p>
 						{/* ===== Display client image condition ===== */}
-						<div className="flex gap-3 items-center justify-end">
+						<div className="flex items-center justify-end gap-3">
 							{testimonial.clientImage?.url ? (
-								<div className="rounded-full w-11 h-11 bg-white">
+								<div className="bg-white rounded-full w-11 h-11">
 									<Image
 										src={testimonial.clientImage.url}
 										width={44}
 										height={44}
 										alt={testimonial.client}
-										className="w-full object-cover"
+										className="object-cover w-full"
 									/>
 								</div>
 							) : (
@@ -76,7 +76,7 @@ export default function Slider({ testimonials }) {
 							)}
 							{/* ===== Client infos ===== */}
 							<div>
-								<h3 className="font-semibold text-base">{testimonial.client}</h3>
+								<h3 className="text-base font-semibold">{testimonial.client}</h3>
 								<div className="text-xs text-redCol">
 									<span>{testimonial.clientPosition}</span>
 									{testimonial?.country && <span> • {testimonial.country}</span>}
@@ -92,7 +92,7 @@ export default function Slider({ testimonials }) {
 					aria-label="Previous slide"
 					aria-controls="swiper-wrapper"
 					type="button"
-					className="prev-slide p-2 transition-all duration-300 hover:text-redCol"
+					className="p-2 transition-all duration-300 prev-slide hover:text-redCol"
 				>
 					<FaArrowLeftLong size={24} />
 				</button>
@@ -100,7 +100,7 @@ export default function Slider({ testimonials }) {
 					aria-controls="swiper-wrapper"
 					type="button"
 					aria-label="Next slide"
-					className="next-slide p-2 transition-all duration-300 hover:text-redCol"
+					className="p-2 transition-all duration-300 next-slide hover:text-redCol"
 				>
 					<FaArrowRightLong size={24} />
 				</button>

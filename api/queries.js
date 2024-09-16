@@ -1,104 +1,154 @@
-import { GraphQLClient, request, gql } from 'graphql-request';
+import { client } from "@/sanity/lib/client";
+import { groq } from "next-sanity";
 
-
-const graphqlAPI = process.env.NEXT_GRAPH_CMS_ENDPOINT_URL
-const hygraph = new GraphQLClient(
-  graphqlAPI
-);
-
-
-// const getSkills = async (params) => {
-//     const { product } = await hygraph.request(
-//       `query ProductPageQuery($slug: String!) {
-//         product(where: { slug: $slug }) {
-//           name
-//           description
-//           price
-//         }
-//       }`,
-//       {
-//         slug: params.slug,
-//       }
-//     );
-
-//     return product
-//   }
-
-export const getSkills = async (params) => {
-  const { skills } = await hygraph.request(
-    `query Skills {
-        skills (first: 30) {
-          id
-          name
-        }
-      }`
-  );
-
-  return skills
+export async function getSkills() {
+  return client.fetch(
+    groq`*[_type == "skill"]{
+      _id,
+      name
+    }`
+  )
 }
 
 export async function getServices() {
-  const query = gql`
-    query Services  {
-      services (first: 50) {
-        id
-        name
-        description
-        servicesList
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
-  return result.services
+  return client.fetch(
+    groq`*[_type == "service"][0...50]{
+      _id,
+      name,
+      description,
+      servicesList
+    }`
+  )
 }
 
 export async function getTestimonials() {
-  const query = gql`
-    query Testimonials {
-      testimonials {
-        id
-        testimonialContent
-        client
-        clientImage {
-          url
-        }
-        clientPosition
-        country
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
-  return result.testimonials
+  return client.fetch(
+    groq`*[_type == "testimonial"]{
+      _id,
+      testimonialContent,
+      client,
+      "clientImageUrl": clientImage.asset->url,
+      clientPosition,
+      country
+    }`
+  )
 }
 
 export async function getAbout() {
-  const query = gql`
-    query About {
-      aboutPages {
-        pageTitle
-        content {
-          markdown
+  return client.fetch(
+    groq`*[_type == "aboutPage"]{
+      pageTitle,
+      content[]{
+        ...,
+        _type == "block" => {
+          "markdown": pt::text(content)
         }
       }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
-  return result.aboutPages[0]
+    }[0]`
+  )
 }
 
 export async function getCertifications() {
-  const query = gql`
-    query MyQuery {
-      certifications {
-        title
-        imageAltText
-        image {
+  return client.fetch(
+    groq`*[_type == "certification"]{
+      _id,
+      title,
+      imageAltText,
+      "imageUrl": image.asset->url
+    }`
+  )
+}
+
+export async function getPosts() {
+  return client.fetch(
+    groq`*[_type == "post"]{
+      _id,
+      title,
+      "slug": slug.current,
+      "coverImage": coverImage.asset->url,
+      "coverImageAlt": coverImage.alt,
+      "author": author->name,
+      categories[]->{
+        title,
+        slug
+      },
+      publishedAt
+    }`
+  );
+
+}
+
+export async function getPost(slug) {
+  return client.fetch(
+    groq`*[_type == "post" && slug.current == $slug][0]{
+      _id,
+      title,
+      "slug": slug.current,
+      "coverImage": coverImage.asset->url,
+      "coverImageAlt": coverImage.alt,
+      "author": author->name,
+      categories[]->{
+        title,
+        slug
+      },
+      publishedAt,
+      body[]{
+        ...,
+        asset->{
           url
         }
-        id
       }
-    }
-  `;
-  const result = await request(graphqlAPI, query);
-  return result.certifications
+    }`,
+    { slug }
+  );
+
+}
+
+
+export async function getLatestPosts() {
+  return client.fetch(
+    groq`*[_type == "post"] | order(publishedAt desc)[0...3]{
+      _id,
+      title,
+      "slug": slug.current,
+      "coverImage": coverImage.asset->url,
+      "coverImageAlt": coverImage.alt,
+      "author": author->name,
+      categories[]->{
+        title,
+        slug
+      },
+      publishedAt
+    }`
+  );
+}
+
+export async function getRelatedPosts(slug, categorySlugs) {
+  return client.fetch(
+    groq`*[_type == "post" && slug.current != $slug && count(categories[]->slug.current in $categorySlugs) > 0] | order(publishedAt desc)[0...3]{
+      _id,
+      title,
+      "slug": slug.current,
+      "coverImage": coverImage.asset->url,
+      "coverImageAlt": coverImage.alt,
+      "author": author->name,
+      categories[]->{
+        title,
+        slug
+      },
+      publishedAt
+    }`,
+    { slug, categorySlugs }
+  );
+}
+
+
+
+
+export async function getCategories() {
+  return client.fetch(
+    groq`
+
+    `
+  )
 }
