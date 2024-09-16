@@ -4,6 +4,7 @@ import './globals.css'
 import { Analytics } from '@vercel/analytics/react';
 
 import { Poppins } from 'next/font/google'
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <Analytics />
       </body>
+      <GoogleAnalytics />
     </html>
   )
 }
