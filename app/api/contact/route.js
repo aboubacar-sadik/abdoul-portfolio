@@ -19,7 +19,7 @@ export async function POST(request) {
             .replace(/\n/g, "<br>")
             .replace(/\r/g, "<br>")
             .replace(/\t/g, "<br>")
-            .replace(/<(?!br\s*\/?)[^>]+>/g, ""); // supprime tout le html en autorisant uniquement les balises <br>
+            .replace(/<(?!br\s*\/?)[^>]+>/g, ""); // supprime tout le html en autorisant uniquement les balises ,<br>
 
         const data = await resend.emails.send({
             from: `Contact Portfolio <${myEmail}>`,
